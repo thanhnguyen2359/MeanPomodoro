@@ -1,0 +1,43 @@
+.content {
+	margin-top: 90px;
+}
+.undecorated-link:hover {
+	text-decoration: none;
+}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+	display: none !important;
+}
+
+body{
+	font-size: 14px;
+	font-family: 'ProximaNova', 'Futura', Arial, sans-serif;
+}
+
+/*START-TYPOGRAPHY*/
+strong{
+	color:#b6a498;
+}
+/*END-TYPOGRAPHY*/
+
+/*START-ICONS*/
+.simple-ico{
+	background:url('/modules/core/img/icons/done.png') no-repeat;
+	width: 36px;
+	height: 36px;
+	display: inline-block;
+}
+
+.fun-ico{
+	background:url('/modules/core/img/icons/fun.png') no-repeat;
+	width: 36px;
+	height: 36px;
+	display: inline-block;
+}
+
+.immediately-ico{
+	background:url('/modules/core/img/icons/immediately.png') no-repeat;
+	width: 36px;
+	height: 36px;
+	display: inline-block;
+}
+/*END-ICONS*/
