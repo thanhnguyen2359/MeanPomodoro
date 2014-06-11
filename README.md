@@ -1,2 +1,1 @@
-SETING UP MEAN.js Framework with Routing (Client and Server) , Authentication layer + Policy Service, ORM 
-Config Grunt with LESS ...
+SETING UP MEAN.js Framework with Routing (Client and Server) , Authentication layer , ORM 
