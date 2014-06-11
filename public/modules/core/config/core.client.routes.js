@@ -21,8 +21,8 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
 
 		$stateProvider.
 		state('book', {
-			url: '/book',
-			templateUrl: 'modules/core/views/home.client.view.html'
+			url: '/books',
+			templateUrl: 'modules/core/views/books.client.view.html'
 		});
 
 		$stateProvider.
