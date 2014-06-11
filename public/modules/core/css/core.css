@@ -17,6 +17,10 @@ body{
 strong{
 	color:#b6a498;
 }
+
+.video{
+	height:500px;
+}
 /*END-TYPOGRAPHY*/
 
 /*START-ICONS*/
@@ -41,3 +45,9 @@ strong{
 	display: inline-block;
 }
 /*END-ICONS*/
+
+/*START-ULTILITIES*/
+.full-width{
+	width: 100%;
+}
+/*END-ULTILITIES*/

@@ -8,7 +8,7 @@ angular.module('core').controller('HeaderController', ['$scope', 'Authentication
 
 		Menus.addMenuItem('topbar','HOME');
 		Menus.addMenuItem('topbar','GET STARTED' , 'get-started');
-		Menus.addMenuItem('topbar','BOOK' , 'book');
+		Menus.addMenuItem('topbar','BOOK' , 'books');
 		Menus.addMenuItem('topbar','COURSE' , 'courses');
 		Menus.addMenuItem('topbar','TIMER' , 'timer');
 		Menus.addMenuItem('topbar','BLOG' , 'blog');
