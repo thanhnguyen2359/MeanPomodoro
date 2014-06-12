@@ -6,8 +6,8 @@ module.exports = {
 		title: 'Promodoro - Development Environment'
 	},
 	facebook: {
-		clientID: process.env.FACEBOOK_ID || 'APP_ID',
-		clientSecret: process.env.FACEBOOK_SECRET || 'APP_SECRET',
+		clientID: process.env.FACEBOOK_ID || '135177736657394',
+		clientSecret: process.env.FACEBOOK_SECRET || '970715de4c99ee9cbd93dcc9a537487d',
 		callbackURL: 'http://localhost:3000/auth/facebook/callback'
 	},
 	twitter: {

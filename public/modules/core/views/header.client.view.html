@@ -15,26 +15,29 @@
 					<b class="caret"></b>
 				</a>
 				<ul ng-switch-when="dropdown" class="dropdown-menu">
-					<li data-ng-repeat="subitem in item.items" data-ng-if="subitem.shouldRender(authentication.user);" ui-route="{{subitem.uiRoute}}" ng-class="{active: $uiRoute}">
+					<li data-ng-repeat="subitem in item.items" data-ng-if="subitem.shouldRender(Session.isLoggedIn);" ui-route="{{subitem.uiRoute}}" ng-class="{active: $uiRoute}">
 						<a href="/#!/{{subitem.link}}" data-ng-bind="subitem.title"></a>
 					</li>
 				</ul>
 				<a ng-switch-default href="/#!/{{item.link}}" data-ng-bind="item.title"></a>
 			</li>
 		</ul>
-		<ul class="nav navbar-nav navbar-right" data-ng-hide="authentication.user">
-			<li ui-route="/signup" ng-class="{active: $uiRoute}">
+		<ul class="nav navbar-nav navbar-right" data-ng-hide="Session.isLoggedIn">
+			<!-- <li ui-route="/signup" ng-class="{active: $uiRoute}">
 				<a href="/#!/signup">Signup</a>
 			</li>
 			<li class="divider-vertical"></li>
 			<li ui-route="/signin" ng-class="{active: $uiRoute}">
 				<a href="/#!/signin">Signin</a>
+			</li> -->
+			<li >
+				<a href='/' ng-click="Session.facebookLogin()">Signin</a>
 			</li>
 		</ul>
-		<ul class="nav navbar-nav navbar-right" data-ng-show="authentication.user">
+		<ul class="nav navbar-nav navbar-right" data-ng-show="Session.isLoggedIn">
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-					<span data-ng-bind="authentication.user.displayName"></span> <b class="caret"></b>
+					<span data-ng-bind="Session.user.displayName"></span> <b class="caret"></b>
 				</a>
 				<ul class="dropdown-menu">
 					<li>
@@ -43,7 +46,7 @@
 					<li>
 						<a href="/#!/settings/accounts">Manage Social Accounts</a>
 					</li>
-					<li data-ng-show="authentication.user.provider === 'local'">
+					<li data-ng-show="User.user.provider === 'local'">
 						<a href="/#!/settings/password">Change Password</a>
 					</li>
 					<li class="divider"></li>
