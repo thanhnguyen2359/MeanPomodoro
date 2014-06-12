@@ -206,16 +206,26 @@ exports.me = function(req, res) {
  */
 exports.oauthCallback = function(strategy) {
 	return function(req, res, next) {
+	
 		passport.authenticate(strategy, function(err, user, redirectURL) {
+			console.log('FACE BOOK USER :');
+			console.log(user);
+			console.log(req.user);
+
 			if (err || !user) {
-				return res.redirect('/#!/signin');
+				return next(err);
+				// return res.redirect('/#!/signin');
 			}
 			req.login(user, function(err) {
 				if (err) {
-					return res.redirect('/#!/signin');
+					return next(err);
 				}
 
-				return res.redirect(redirectURL || '/');
+				// return res.redirect(redirectURL || '/');
+				return res.render('afterAuth',
+					{ 
+						user : req.user || null
+					});
 			});
 		})(req, res, next);
 	};
@@ -321,7 +331,6 @@ exports.saveOAuthUserProfile = function(req, providerUserProfile, done) {
 	} else {
 		// User is already logged in, join the provider data to the existing user
 		var user = req.user;
-
 		// Check if user exists, is not signed in using this provider, and doesn't have that provider data already configured
 		if (user.provider !== providerUserProfile.provider && (!user.additionalProvidersData || !user.additionalProvidersData[providerUserProfile.provider])) {
 			// Add the provider data to the additional provider data field
@@ -336,7 +345,8 @@ exports.saveOAuthUserProfile = function(req, providerUserProfile, done) {
 				return done(err, user, '/#!/settings/accounts');
 			});
 		} else {
-			return done(new Error('User is already connected using this provider'), user);
+			done(user);
+			// return done(new Error('User is already connected using this provider'), user);
 		}
 	}
 };

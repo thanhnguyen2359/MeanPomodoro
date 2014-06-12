@@ -17,4 +17,20 @@ angular.element(document).ready(function() {
 
 	//Then init the app
 	angular.bootstrap(document, [ApplicationConfiguration.applicationModuleName]);
+	angular.module('core').run(['$rootScope','$window','SessionService',function($rootScope,$window,SessionService){
+		$rootScope.Session = SessionService;
+		$window.app = {
+			authState : function(user){
+				if(user){
+					SessionService.authSuccess(user);
+				}else{
+					SessionService.authFail();
+				}
+			}
+		}
+
+		if($window.user){
+			$window.app.authState($window.user);
+		}
+	}]);
 });
