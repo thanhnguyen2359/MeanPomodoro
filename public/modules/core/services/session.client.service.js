@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('core').service('SessionService',['$window','$http',
-	function($window, $http){
+angular.module('core').service('SessionService',['$rootScope','$window','$http',
+	function($rootScope, $window, $http){
 	var session = {
 		init :function(){
 			this.resetSession();
@@ -20,15 +20,19 @@ angular.module('core').service('SessionService',['$window','$http',
 			$window.open(url, 'facebook_login','width=' + width + ',height=' + height + ',scrollbars=0,top=' + top + ',left=' + left);
 		},
 		logout: function(){
+			var self = this;
 			$http.get('/auth/signout').success(function(){
-				this.resetSession();
+				self.resetSession();
+				$rootScope.$emit('session-changed');
 			});
 		},
 
 		/*triggers*/
 		authSuccess:function(userData){
-			this.user = userData.user;
+			this.user = userData;
 			this.isLoggedIn = true;
+			$rootScope.$emit('session-changed');
+			console.log('Autehntication success.');
 		},
 		authFail : function(){
 			this.resetSession();

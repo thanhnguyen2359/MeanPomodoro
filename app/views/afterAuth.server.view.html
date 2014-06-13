@@ -4,10 +4,11 @@
 	<title>{{ title }}</title>
 </head>
 <body>
+<h1>After Auth</h1>
 <script type="text/javascript">
 	if(window.opener){
 		window.opener.focus();
-		var user = '{{ JSON.stringify(user) }}';
+		var user = {{ JSON.stringify(user) }};
 
 		if(window.opener.app 
 			&& window.opener.app.authState)

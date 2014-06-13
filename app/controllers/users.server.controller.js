@@ -208,10 +208,7 @@ exports.oauthCallback = function(strategy) {
 	return function(req, res, next) {
 	
 		passport.authenticate(strategy, function(err, user, redirectURL) {
-			console.log('FACE BOOK USER :');
-			console.log(user);
-			console.log(req.user);
-
+			
 			if (err || !user) {
 				return next(err);
 				// return res.redirect('/#!/signin');
@@ -220,7 +217,6 @@ exports.oauthCallback = function(strategy) {
 				if (err) {
 					return next(err);
 				}
-
 				// return res.redirect(redirectURL || '/');
 				return res.render('afterAuth',
 					{ 
@@ -345,7 +341,7 @@ exports.saveOAuthUserProfile = function(req, providerUserProfile, done) {
 				return done(err, user, '/#!/settings/accounts');
 			});
 		} else {
-			done(user);
+			done(null,user);
 			// return done(new Error('User is already connected using this provider'), user);
 		}
 	}
