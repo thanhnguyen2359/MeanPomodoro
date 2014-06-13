@@ -7,7 +7,7 @@ angular.module('core').service('SessionService',['$window','$http',
 			this.resetSession();
 		},
 		resetSession : function(){
-			this.user = null;
+			$window.user = null;
 			this.isLoggedIn = false;
 		},
 		facebookLogin: function(){
@@ -27,8 +27,9 @@ angular.module('core').service('SessionService',['$window','$http',
 
 		/*triggers*/
 		authSuccess:function(userData){
-			this.user = userData.user;
+			this.user = userData;
 			this.isLoggedIn = true;
+			console.log('Autehntication success.');
 		},
 		authFail : function(){
 			this.resetSession();

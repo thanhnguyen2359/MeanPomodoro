@@ -5,10 +5,28 @@ angular.module(ApplicationConfiguration.applicationModuleName, ApplicationConfig
 
 // Setting HTML5 Location Mode
 angular.module(ApplicationConfiguration.applicationModuleName).config(['$locationProvider',
-	function($locationProvider) {
+	function($locationProvider,$window,SessionService) {
 		$locationProvider.hashPrefix('!');
 	}
-]);
+]).run(['$window','SessionService',function($window,SessionService){
+	console.log("Bootstrapp globals...");
+
+	$window.app = {
+			authState : function(user){
+				if(user){
+					$window.user = user;
+					SessionService.authSuccess(user);
+				}else{
+					SessionService.authFail();
+				}
+			}
+		}
+
+	if($window.user){
+		$window.app.authState($window.user);
+	}
+}]);
+
 
 //Then define the init function for starting up the application
 angular.element(document).ready(function() {
@@ -17,20 +35,7 @@ angular.element(document).ready(function() {
 
 	//Then init the app
 	angular.bootstrap(document, [ApplicationConfiguration.applicationModuleName]);
-	angular.module('core').run(['$rootScope','$window','SessionService',function($rootScope,$window,SessionService){
-		$rootScope.Session = SessionService;
-		$window.app = {
-			authState : function(user){
-				if(user){
-					SessionService.authSuccess(user);
-				}else{
-					SessionService.authFail();
-				}
-			}
-		}
-
-		if($window.user){
-			$window.app.authState($window.user);
-		}
-	}]);
+	var app = angular.module(ApplicationConfiguration.applicationModuleName);
+	app.run(['$window','SessionService'],function($window,SessionService){
+	});
 });
