@@ -8,7 +8,7 @@
 <script type="text/javascript">
 	if(window.opener){
 		window.opener.focus();
-		var user = '{{ JSON.stringify(user) }}';
+		var user = {{ JSON.stringify(user) }};
 
 		if(window.opener.app 
 			&& window.opener.app.authState)

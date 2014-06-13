@@ -1,11 +1,16 @@
 'use strict';
 
-angular.module('core').controller('HeaderController', ['$scope', 'Authentication', 'Menus','SessionService',
-	function($scope, Authentication, Menus,SessionService) {
+angular.module('core').controller('HeaderController', ['$rootScope','$scope', 'Authentication', 'Menus','SessionService',
+	function($rootScope,$scope, Authentication, Menus,SessionService) {
 		$scope.Session = SessionService;
-		if(SessionService.user){
-			console.log($scope.Session.user.displayName);
-		}
+		console.log($scope.Session);
+		$rootScope.$on('session-changed', function(){
+			$scope.$apply(function(){
+	            $scope.Session = SessionService;
+			});
+			console.log('Session changed...');
+			console.log($scope.Session);
+		});
 		
 		$scope.authentication = Authentication;
 		$scope.isCollapsed = false;
