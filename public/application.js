@@ -8,17 +8,20 @@ angular.module(ApplicationConfiguration.applicationModuleName).config(['$locatio
 	function($locationProvider,$window,SessionService) {
 		$locationProvider.hashPrefix('!');
 	}
-]).run(['$window','SessionService',function($window,SessionService){
+]).run(['$window','$rootScope','SessionService',function($window,$rootScope,SessionService){
 	console.log("Bootstrapp globals...");
 
 	$window.app = {
 			authState : function(user){
-				if(user){
-					$window.user = user;
+				$rootScope.$apply(function(){
+					if(user){
+						$window.user = user;
 					SessionService.authSuccess(user);
-				}else{
-					SessionService.authFail();
-				}
+					}else{
+						SessionService.authFail();
+					}
+				});
+				
 			}
 		}
 
