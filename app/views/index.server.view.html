@@ -1,7 +1,7 @@
 {% extends 'layout.server.view.html' %}
 
 {% block content %}
-	<section class="col-md-3" data-ng-include="'/modules/core/views/sidebar.client.view.html'"></section>
+	<section class="col-md-3" data-ng-hide="Session.isRole('admin')" data-ng-include="'/modules/core/views/sidebar.client.view.html'"></section>
 	<div class="col-md-9">
 		<section class="pull-left view" data-ui-view></section>
 	</div>

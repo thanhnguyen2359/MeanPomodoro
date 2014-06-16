@@ -25,6 +25,7 @@ angular.module(ApplicationConfiguration.applicationModuleName).config(['$locatio
 			}
 		}
 
+	$rootScope.Session = SessionService;
 	if($window.user){
 		$window.app.authState($window.user);
 	}
