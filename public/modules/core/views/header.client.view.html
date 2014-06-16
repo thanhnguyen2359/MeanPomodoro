@@ -50,7 +50,7 @@
 						<a href="/#!/settings/password">Change Password</a>
 					</li>
 					<li>
-						<a href="/#!/admin/manage-user"> Manage User</a>
+						<a href="/#!/admin/manage-user" data-ng-show="Session.isRole('admin')"> Manage User</a>
 					</li>
 					<li class="divider"></li>
 					<li>

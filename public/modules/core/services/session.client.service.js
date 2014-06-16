@@ -10,8 +10,14 @@ angular.module('core').service('SessionService',['$rootScope','$window','$http',
 			this.user = null;
 			this.isLoggedIn = false;
 		},
+		isRole : function(role){
+			return this.user && this.user.roles.filter(function(val){
+				return val === role;
+			}).length > 0;
+		},
+
+		/*FACE BOOK Authentication*/
 		facebookLogin: function(){
-			console.log('facebook login ...');
 			var url = '/auth/facebook',
 				width = 400,
 				height = 300,
@@ -32,7 +38,7 @@ angular.module('core').service('SessionService',['$rootScope','$window','$http',
 			this.user = userData;
 			this.isLoggedIn = true;
 			// $rootScope.$emit('session-changed');
-			console.log('Autehntication success.');
+			console.log('Authentication success.');
 		},
 		authFail : function(){
 			this.resetSession();

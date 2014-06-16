@@ -5,6 +5,7 @@
  */
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema,
+	_ = require('lodash'),
 	crypto = require('crypto');
 
 /**
@@ -85,6 +86,10 @@ var UserSchema = new Schema({
 });
 
 /**
+	Define Virtuals Fields
+*/
+
+/**
  * Hook a pre save method to hash the password
  */
 UserSchema.pre('save', function(next) {
@@ -115,6 +120,13 @@ UserSchema.methods.authenticate = function(password) {
 };
 
 /**
+* Create instance method for checking user roles
+*/
+UserSchema.method.isRole = function(role){
+	return _.where(this.roles,role) !== null;
+};
+
+/**
  * Find possible not used username
  */
 UserSchema.statics.findUniqueUsername = function(username, suffix, callback) {
@@ -135,5 +147,7 @@ UserSchema.statics.findUniqueUsername = function(username, suffix, callback) {
 		}
 	});
 };
+
+
 
 mongoose.model('User', UserSchema);
