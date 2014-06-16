@@ -13,8 +13,8 @@ angular.module('core').service('SessionService',['$rootScope','$window','$http',
 		facebookLogin: function(){
 			console.log('facebook login ...');
 			var url = '/auth/facebook',
-				width = 800,
-				height = 600,
+				width = 400,
+				height = 300,
 				top = (window.outerHeight - height) / 2,
 				left = (window.outerWidth - width) / 2;
 			$window.open(url, 'facebook_login','width=' + width + ',height=' + height + ',scrollbars=0,top=' + top + ',left=' + left);
@@ -23,7 +23,7 @@ angular.module('core').service('SessionService',['$rootScope','$window','$http',
 			var self = this;
 			$http.get('/auth/signout').success(function(){
 				self.resetSession();
-				$rootScope.$emit('session-changed');
+				// $rootScope.$emit('session-changed');
 			});
 		},
 
@@ -31,7 +31,7 @@ angular.module('core').service('SessionService',['$rootScope','$window','$http',
 		authSuccess:function(userData){
 			this.user = userData;
 			this.isLoggedIn = true;
-			$rootScope.$emit('session-changed');
+			// $rootScope.$emit('session-changed');
 			console.log('Autehntication success.');
 		},
 		authFail : function(){

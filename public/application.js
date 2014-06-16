@@ -8,17 +8,20 @@ angular.module(ApplicationConfiguration.applicationModuleName).config(['$locatio
 	function($locationProvider,$window,SessionService) {
 		$locationProvider.hashPrefix('!');
 	}
-]).run(['$window','SessionService',function($window,SessionService){
+]).run(['$window','$rootScope','SessionService',function($window,$rootScope,SessionService){
 	console.log("Bootstrapp globals...");
 
 	$window.app = {
 			authState : function(user){
-				if(user){
-					$window.user = user;
+				$rootScope.$apply(function(){
+					if(user){
+						$window.user = user;
 					SessionService.authSuccess(user);
-				}else{
-					SessionService.authFail();
-				}
+					}else{
+						SessionService.authFail();
+					}
+				});
+				
 			}
 		}
 
@@ -30,12 +33,10 @@ angular.module(ApplicationConfiguration.applicationModuleName).config(['$locatio
 
 //Then define the init function for starting up the application
 angular.element(document).ready(function() {
-	//Fixing facebook bug with redirect
-	if (window.location.hash === '#_=_') window.location.hash = '#!';
-
+	// //Fixing facebook bug with redirect
+	// if (window.location.hash === '#_=_') window.location.hash = '#!';
 	//Then init the app
 	angular.bootstrap(document, [ApplicationConfiguration.applicationModuleName]);
-	var app = angular.module(ApplicationConfiguration.applicationModuleName);
-	app.run(['$window','SessionService'],function($window,SessionService){
-	});
+		//Fixing facebook bug with redirect
+	if (window.location.hash === '#_=_' || window.location.hash === "") window.location.hash = '#!';
 });
