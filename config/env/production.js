@@ -9,6 +9,7 @@ module.exports = {
 				'public/lib/bootstrap/dist/css/bootstrap-theme.min.css',
 			],
 			js: [
+				'public/lib/jquery/jquery.min.js',
 				'public/lib/angular/angular.min.js',
 				'public/lib/angular-resource/angular-resource.js', 
 				'public/lib/angular-cookies/angular-cookies.js', 
@@ -19,7 +20,6 @@ module.exports = {
 				'public/lib/angular-ui-utils/ui-utils.min.js',
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.min.js',
 				'public/lib/angular-ui/build/angular-ui.min.js',
-				'public/lib/jquery/dist/jquery.min.js',
 				'public/lib/ng-grid/build/ng-grid.min.js',
 				'public/lib/select2/select2.min.js'
 
