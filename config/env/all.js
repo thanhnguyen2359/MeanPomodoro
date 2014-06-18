@@ -29,6 +29,7 @@ module.exports = {
 				'public/lib/angular-ui/build/angular-ui.js',
 				'public/lib/jquery/dist/jquery.js',
 				'public/lib/ng-grid/build/ng-grid.js',
+				'public/lib/select2/select2.js',
 
 			]
 		},
