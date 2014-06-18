@@ -17,7 +17,12 @@ module.exports = {
 				'public/lib/angular-sanitize/angular-sanitize.js', 
 				'public/lib/angular-ui-router/release/angular-ui-router.min.js',
 				'public/lib/angular-ui-utils/ui-utils.min.js',
-				'public/lib/angular-bootstrap/ui-bootstrap-tpls.min.js'
+				'public/lib/angular-bootstrap/ui-bootstrap-tpls.min.js',
+				'public/lib/angular-ui/build/angular-ui.min.js',
+				'public/lib/jquery/dist/jquery.min.js',
+				'public/lib/ng-grid/build/ng-grid.min.js',
+				'public/lib/select2/select2.min.js'
+
 			]
 		},
 		css: 'public/dist/application.min.css',
