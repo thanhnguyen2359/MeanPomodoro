@@ -2,3 +2,10 @@
 .ngCanvas {
 	position: absolute !important;
 }
+/*END-GRID*/
+
+/*Angular UI - Select2*/
+.select2-container{
+	width: 100%;
+}
+/*END-Select2*/
