@@ -15,4 +15,9 @@ angular.module('admin').controller('ManageUser', ['$scope','$http',function($sco
     //                   {field : 'Roles' , enableCellEdit: true}]
     // };
 
+    $scope.select2 = {};
+    $scope.select2Options = {
+        multiple:true
+    };
+
 }]);

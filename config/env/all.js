@@ -17,6 +17,7 @@ module.exports = {
 				'public/lib/bootstrap/dist/css/bootstrap-theme.css',
 			],
 			js: [
+				'public/lib/jquery/jquery.js',
 				'public/lib/angular/angular.js',
 				'public/lib/angular-resource/angular-resource.js', 
 				'public/lib/angular-cookies/angular-cookies.js', 
@@ -26,8 +27,7 @@ module.exports = {
 				'public/lib/angular-ui-router/release/angular-ui-router.js',
 				'public/lib/angular-ui-utils/ui-utils.js',
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
-				'public/lib/angular-ui/build/angular-ui.js',
-				'public/lib/jquery/dist/jquery.js',
+				'public/lib/angular-ui/build/angular-ui.js',		
 				'public/lib/ng-grid/build/ng-grid.js',
 				'public/lib/select2/select2.js',
 
@@ -35,7 +35,8 @@ module.exports = {
 		},
 		css: [
 			'public/modules/**/css/*.css',
-			 'public/lib/ng-grid/ng-grid.css'
+			 'public/lib/ng-grid/ng-grid.css',
+			 'public/lib/select2/select2.css'
 		],
 		js: [
 			'public/config.js',
