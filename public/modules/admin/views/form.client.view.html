@@ -1,0 +1,51 @@
+<section ng-controller="KiraForm">
+	<!-- <form name="form" novalidate role="form" class="css-form">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Full Name</label>
+    <input type="text" class="form-control" inputpreventable ng-model="user.fullName" required data-prevent-pattern="([^a-zA-z\-.]){1,}" placeholder="Enter Full Name.">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" ng-model="user.password" required placeholder="Password">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputFile">File input</label>
+    <input type="file" id="exampleInputFile">
+    <p class="help-block">Example block-level help text here.</p>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox"> Check me out
+    </label>
+  </div>
+  <button type="button" class="btn btn-default" ng-disabled="form.$invalid" ng-click="update(user)">Submit</button>
+</form> -->
+
+<table datatable options="{
+    scrollY: 300,
+    paging: false
+} " scrollY='300' paging='false'>
+  <thead>
+    <th>Name</th>
+    <th>Position</th>
+    <th>Office</th>
+  </thead>
+  <tbody>
+  <tr>
+     <td>Christine</td>
+    <td>Singer</td>
+    <td>Paris Opera</td>
+  </tr>
+  <tr>
+       <td>Erik</td>
+      <td>Composer</td>
+      <td>Paris Opera</td>
+  </tr>
+   <tr>
+       <td>Raul</td>
+      <td>Watcher</td>
+      <td>Paris Castle</td>
+  </tr>
+  </tbody>
+</table>
+</section>

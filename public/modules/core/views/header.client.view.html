@@ -19,8 +19,12 @@
 						<a href="/#!/{{subitem.link}}" data-ng-bind="subitem.title"></a>
 					</li>
 				</ul>
+
 				<a ng-switch-default href="/#!/{{item.link}}" data-ng-bind="item.title"></a>
 			</li>
+			<li>
+				<a href="/#!/admin/form">Form</a>
+			</li>				
 		</ul>
 		<ul class="nav navbar-nav navbar-right" data-ng-hide="Session.isLoggedIn">
 			<!-- <li ui-route="/signup" ng-class="{active: $uiRoute}">
@@ -51,6 +55,9 @@
 					</li>
 					<li>
 						<a href="/#!/admin/manage-user" data-ng-show="Session.isRole('admin')"> Manage User</a>
+					</li>
+					<li>
+						<a href="/#!/admin/form">Form</a>
 					</li>
 					<li class="divider"></li>
 					<li>

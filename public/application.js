@@ -4,6 +4,16 @@
 	//Start by defining the main module and adding the module dependencies
 	angular.module(ApplicationConfiguration.applicationModuleName, ApplicationConfiguration.applicationModuleVendorDependencies);
 
+	//Setting JQUERY Plugins
+	var i = ApplicationConfiguration.jQueryPlugins.length;
+	console.log('debugger...');
+	console.log(i);
+	while(--i >= 0){
+		console.log(i);
+		ApplicationConfiguration.registerPlugin(ApplicationConfiguration.applicationModuleName,
+		ApplicationConfiguration.jQueryPlugins[i].directiveName,ApplicationConfiguration.jQueryPlugins[i].pluginFn);
+	}
+	
 	// Setting HTML5 Location Mode
 	angular.module(ApplicationConfiguration.applicationModuleName).config(['$locationProvider',
 		function($locationProvider,$window,SessionService) {
@@ -41,6 +51,9 @@
 		angular.bootstrap(document, [ApplicationConfiguration.applicationModuleName]);
 			//Fixing facebook bug with redirect
 		if (window.location.hash === '#_=_' || window.location.hash === "") window.location.hash = '#!';
+
+		
+
 	});
 })(window.jQuery);
 

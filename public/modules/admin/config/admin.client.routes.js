@@ -11,4 +11,11 @@ angular.module('admin').config(['$stateProvider', '$urlRouterProvider',
 			url: '/admin/manage-user',
 			templateUrl: 'modules/admin/views/manage-user.client.view.html'
 		});
+
+		$stateProvider.
+		state('form', {
+			url: '/admin/form',
+			templateUrl: 'modules/admin/views/form.client.view.html'
+		});
+
 }]);

@@ -30,13 +30,18 @@ module.exports = {
 				'public/lib/angular-ui/build/angular-ui.js',		
 				'public/lib/ng-grid/build/ng-grid.js',
 				'public/lib/select2/select2.js',
+				'public/lib/datatables/media/js/jquery.dataTables.js',
+				'public/lib/datatables-colvis/js/dataTables.colVis.js'
 
 			]
 		},
 		css: [
 			'public/modules/**/css/*.css',
 			 'public/lib/ng-grid/ng-grid.css',
-			 'public/lib/select2/select2.css'
+			 'public/lib/select2/select2.css',
+			 'public/lib/datatables-colvis/css/dataTables.colVis.css',
+			 'public/lib/datatables-colvis/css/dataTables.colvis.jqueryui.css',
+			 'public/lib/datatables/media/css/jquery/dataTables.css'
 		],
 		js: [
 			'public/config.js',
